@@ -29,7 +29,7 @@
         </ul>
       </nav>
     </header>
-     <header style="background-image: url('imagem/foto3.jpg');"
+     <header style="background-image: url('imagem/menu escuro.jpg.jpg');"
 
     <section class="menu-section">
       <h2>Nosso Cardápio</h2>
@@ -38,9 +38,12 @@
         <div id="menu-items" class="menu-items">
 
           <div class="item" data-name="Café Expresso" data-price="6">
-            <img src="imagem/coffee.png" alt="">
+            <img src="imagem/latte-art.png" alt="">
             <h3>Café Expresso</h3>
             <p>R$ 6,00</p>
+            <p>
+(O café expresso é um café forte e concentrado com uma camada de creme na superfície)
+            </p>
             <button onclick="addToCart" class="button"('Café Expresso', 6)">Adicionar</button>
           </div>
 
@@ -48,31 +51,37 @@
             <img src="imagem/croissant.png" alt="">
             <h3>Croissant</h3>
             <p>R$ 8,00</p>
+            <p>(O croissant é um tipo de pão folhado de formato de meia-lua, feito principalmente de farinha, açúcar, sal, leite, fermento, manteiga e ovo)</p>
             <button class="button" onclick="addToCart('Croissant', 8)">Adicionar</button>
-          </div>
-
-          <div class="menu-items" data-name="Livro Romance" data-price="45">
-            <img src="imagem/book.png" alt="">
-            <h3>Livro Romance</h3>
-            <p>R$ 45,00</p>
-            <button class="button" onclick="addToCart('Livro Romance', 45)">Adicionar</button>
           </div>
           <div class="menu-items" data-name="Café com Leite" data-price="10">
             <img src="imagem/latte-art.png" alt="">
             <h3>Café com Leite</h3>
             <p>R$ 10,00</p>
+            <p>(Café da casa com leite cremoso, disponivel tambem o zero lactose )</p>
             <button class="button" onclick="addToCart('Café com Leite', 10)">Adicionar</button>
-          <div class="menu-items" data-name="Livro Comedia" data-price="45">
+        </div>
+         <div class="menu-items" data-name="Café com Leite" data-price="10">
+            <img src="imagem/latte-art.png" alt="">
+            <h3>Café da casa</h3>
+            <p>R$ 10,00</p>
+            <p>(Café da casa, feito com amor e dedicaçaõ)</p>
+            <button class="button" onclick="addToCart('Café com Leite', 10)">Adicionar</button>
+        </div>
+        <div class="menu-items" data-name="Livro Romance" data-price="45">
             <img src="imagem/book.png" alt="">
-            <h3>Livro Comédia</h3>
+            <h3>Livros</h3>
             <p>R$ 45,00</p>
+            <p>(Na nossa biblioteca de livros, você pode encontrar diversas categorias, como romance, comédia, ficção, terror, poesia e muitos outros gêneros. )</p>
             <button class="button" onclick="addToCart('Livro Romance', 45)">Adicionar</button>
           </div>
-        </div>
       </div>
       <h2>Carrinho</h2>
       <ul id="cart-list"></ul>
-      <div>Total: <span id="total"></span></div>
+      <div>Total: <span id="total"></span></div>>
+      <button id="checkout-button" class="btn">
+        <a href="compre.html">Finalizar compra</a>
+      </button>
     </section>
   </header>
   </body>
