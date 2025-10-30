@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Compre Agora - CoBee</title>
+    <title>Compre Agora - CoBee</title> 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,16 +28,35 @@
           <li><a href="contato.html">Contato</a></li>
         </ul>
       </nav>
+      </header>
     </header>
-     <header style="background-image: url('imagem/fundo livro com café.jpg');"
+     <header style="background-image: url('imagem/fundo livro com café.jpg');background-size: cover; background-position: center; background-repeat: no-repeat;"
 
     <section class="checkout">
-      <h2>Finalizar Compra</h2>
+      <h2 class="hero-title"> Finalizar Compra</h2>
+      <div id="cart-message" class="cart-message"></div>
       <form>
         <input type="text" placeholder="Nome Completo" required />
         <input type="email" placeholder="E-mail" required />
         <input type="text" placeholder="Endereço" required />
-        <button type="submit">Finalizar</button>
+        <button type="button" id="finalizarCompra">Finalizar compra</button>
+        <script>
+          document.getElementById('finalizarCompra').onclick = function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const itensTexto = cart.map(item => `${item.name} - ${formatarPreco(item.price)}`).join('\n');
+            const valorTotal = cart.reduce((sum, item) => sum + item.price, 0);
+            const nome = document.querySelector('input[placeholder="Nome Completo"]').value;
+            const email = document.querySelector('input[placeholder="E-mail"]').value;
+            const endereco = document.querySelector('input[placeholder="Endereço"]').value;
+            const mensagem = encodeURIComponent(
+              `Olá! Quero finalizar a compra.\n\nNome: ${nome}\nE-mail: ${email}\nEndereço: ${endereco}\n\nItens:\n${itensTexto}\n\nValor total: ${formatarPreco(valorTotal)}`
+            );
+            window.open(`https://wa.me/5532984685019?text=${mensagem}`, '_blank');
+          };
+        </script>
+
+        </button>
+      
       </form>
       
     </section>

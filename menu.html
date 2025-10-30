@@ -44,7 +44,7 @@
             <p>
 (O café expresso é um café forte e concentrado com uma camada de creme na superfície)
             </p>
-            <button onclick="addToCart" class="button"('Café Expresso', 6)">Adicionar</button>
+            <button class="button" onclick="addToCart('café expresso', 6)">Adicionar</button>
           </div>
 
           <div  class="menu-items" data-name="Croissant" data-price="8">
@@ -78,7 +78,7 @@
       </div>
       <h2>Carrinho</h2>
       <ul id="cart-list"></ul>
-      <div>Total: <span id="total"></span></div>>
+      <div>Total: <span id="total" aria-live="polite">R$ 0,00</span></div>
       <button id="checkout-button" class="btn">
       
         <a href="compre.html">Finalizar compra</a>

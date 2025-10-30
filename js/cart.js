@@ -14,9 +14,27 @@ const formatarPreco = (valor) =>
 function updateCart() {
   const cartList = document.getElementById("cart-list");
   const totalElement = document.getElementById("total");
+  const messageElement = document.getElementById("cart-message");
   if (!cartList || !totalElement) return;
 
   cartList.innerHTML = "";
+  
+  // Prepara a mensagem do carrinho
+  let mensagem = "";
+  if (cart.length > 0) {
+    mensagem = "Itens selecionados:\n";
+    cart.forEach(item => {
+      mensagem += `${item.name} - ${formatarPreco(item.price)}\n`;
+    });
+    mensagem += `\nTotal: ${formatarPreco(total)}`;
+  } else {
+    mensagem = "Nenhum item selecionado";
+  }
+  
+  // Atualiza a mensagem se o elemento existir
+  if (messageElement) {
+    messageElement.textContent = mensagem;
+  }
 
   if (cart.length === 0) {
     cartList.innerHTML = "<li>Seu carrinho está vazio.</li>";
@@ -27,6 +45,14 @@ function updateCart() {
       let btn = document.createElement("button");
       btn.textContent = "X";
       btn.setAttribute("aria-label", `Remover ${item.name} do carrinho`);
+      btn.style.border = "2px solid red";
+      btn.style.borderRadius = "50%";
+      btn.style.color = "red";
+      btn.style.background = "white";
+      btn.style.width = "24px";
+      btn.style.height = "24px";
+      btn.style.fontWeight = "bold";
+      btn.style.cursor = "pointer";
       btn.onclick = () => removeFromCart(index);
       li.appendChild(btn);
       cartList.appendChild(li);
@@ -57,14 +83,33 @@ function removeFromCart(index) {
 document.addEventListener("DOMContentLoaded", () => {
   updateCart();
 
-  const search = document.getElementById("search");
-  if (search) {
-    search.addEventListener("input", (e) => {
-      const term = e.target.value.toLowerCase();
-      document.querySelectorAll(".item").forEach((item) => {
-        const name = item.dataset.name.toLowerCase();
-        item.style.display = name.includes(term) ? "block" : "none";
-      });
+  // Busca de itens: suporta input, botão e tecla Enter
+  const searchInput = document.getElementById("search") || document.querySelector('.search');
+  const searchButton = document.getElementById("search-button");
+
+  function performSearch(term) {
+    const q = (term || "").toLowerCase();
+    // seleciona elementos que podem conter os itens (classes inconsistentes no HTML)
+    const nodes = document.querySelectorAll('.item, .menu-items');
+    nodes.forEach((item) => {
+      const name = (item.dataset.name || "").toLowerCase();
+      item.style.display = name.includes(q) ? "block" : "none";
     });
+  }
+
+  if (searchInput) {
+    // pesquisa enquanto digita
+    searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+    // também permite buscar ao pressionar Enter
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        performSearch(searchInput.value);
+      }
+    });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener('click', () => performSearch(searchInput ? searchInput.value : ''));
   }
 });

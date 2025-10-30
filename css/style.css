@@ -110,6 +110,29 @@ nav ul li a:hover {
   color: var(--branco);
 }
 
+/* Contorno preto para título e subtítulo na seção hero */
+.hero-title,
+.hero-subtitle {
+  color: #ffffff; /* cor do texto por cima do contorno */
+  -webkit-text-stroke: 1px #5a422e; /* contorno principal (Chrome, Safari) */
+  text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; /* reforça o contorno em navegadores sem text-stroke */
+}
+
+/* Ajustes opcionais: espessura maior para o título */
+.hero-title {
+  -webkit-text-stroke-width: 1px;
+  font-size: 3rem; /* mantém/ajusta tamanho conforme necessário */
+}
+
+.hero-subtitle {
+  -webkit-text-stroke-width: 0.3px;
+  margin-bottom: 0.3rem;
+}
+
 .btn {
   background: var(--marrom-claro);
   color: var(--preto);
@@ -319,6 +342,17 @@ h2 {
   cursor: pointer;
   transition: 0.3s;
   margin-top: 1rem;
+}
+
+.cart-message {
+  background: var(--cinza);
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  white-space: pre-line;
+  color: var(--marrom-escuro);
+  font-size: 1.1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* ===== FOOTER ===== */
