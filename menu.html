@@ -29,51 +29,51 @@
         </ul>
       </nav>
     </header>
-     <header style="background-image: url('imagem/menu escuro.jpg.jpg');"
-
+    <header style="background-image: url('imagem/menu escuro.jpg.jpg');">
     <section class="menu-section">
       <h2>Nosso Cardápio</h2>
-      <input type="text" class="search" placeholder="🔍 Buscar item..." />
+      <input type="text" id="search" class="search" placeholder="🔍 Buscar item..." />
       <div class="menu">
         <div id="menu-items" class="menu-items">
 
           <div class="item" data-name="Café Expresso" data-price="6">
-            <img src="imagem/latte-art.png" alt="">
+            <img src="imagem/latte-art.png" alt="Café Expresso">
             <h3>Café Expresso</h3>
             <p>R$ 6,00</p>
-            <p>
-(O café expresso é um café forte e concentrado com uma camada de creme na superfície)
-            </p>
-            <button class="button" onclick="addToCart('café expresso', 6)">Adicionar</button>
+            <p>(O café expresso é um café forte e concentrado com uma camada de creme na superfície)</p>
+            <button class="button add-button" data-action="add" data-name="Café Expresso" data-price="6">Adicionar</button>
           </div>
 
-          <div  class="menu-items" data-name="Croissant" data-price="8">
-            <img src="imagem/croissant.png" alt="">
+          <div class="item" data-name="Croissant" data-price="8">
+            <img src="imagem/croissant.png" alt="Croissant">
             <h3>Croissant</h3>
             <p>R$ 8,00</p>
             <p>(O croissant é um tipo de pão folhado de formato de meia-lua, feito principalmente de farinha, açúcar, sal, leite, fermento, manteiga e ovo)</p>
-            <button class="button" onclick="addToCart('Croissant', 8)">Adicionar</button>
+            <button class="button add-button" data-action="add" data-name="Croissant" data-price="8">Adicionar</button>
           </div>
-          <div class="menu-items" data-name="Café com Leite" data-price="10">
-            <img src="imagem/latte-art.png" alt="">
+
+          <div class="item" data-name="Café com Leite" data-price="10">
+            <img src="imagem/latte-art.png" alt="Café com Leite">
             <h3>Café com Leite</h3>
             <p>R$ 10,00</p>
-            <p>(Café da casa com leite cremoso, disponivel tambem o zero lactose )</p>
-            <button class="button" onclick="addToCart('Café com Leite', 10)">Adicionar</button>
-        </div>
-         <div class="menu-items" data-name="Café com Leite" data-price="10">
-            <img src="imagem/latte-art.png" alt="">
+            <p>(Café da casa com leite cremoso, disponivel tambem o zero lactose)</p>
+            <button class="button add-button" data-action="add" data-name="Café com Leite" data-price="10">Adicionar</button>
+          </div>
+
+          <div class="item" data-name="Café da casa" data-price="10">
+            <img src="imagem/latte-art.png" alt="Café da casa">
             <h3>Café da casa</h3>
             <p>R$ 10,00</p>
-            <p>(Café da casa, feito com amor e dedicaçaõ)</p>
-            <button class="button" onclick="addToCart('Café com Leite', 10)">Adicionar</button>
-        </div>
-        <div class="menu-items" data-name="Livro Romance" data-price="45">
-            <img src="imagem/book.png" alt="">
+            <p>(Café da casa, feito com amor e dedicação)</p>
+            <button class="button add-button" data-action="add" data-name="Café da casa" data-price="10">Adicionar</button>
+          </div>
+
+          <div class="item" data-name="Livros" data-price="45">
+            <img src="imagem/book.png" alt="Livros">
             <h3>Livros</h3>
             <p>R$ 45,00</p>
-            <p>(Na nossa biblioteca de livros, você pode encontrar diversas categorias, como romance, comédia, ficção, terror, poesia e muitos outros gêneros. )</p>
-            <button class="button" onclick="addToCart('Livro Romance', 45)">Adicionar</button>
+            <p>(Na nossa biblioteca de livros, você pode encontrar diversas categorias, como romance, comédia, ficção, terror, poesia e muitos outros gêneros.)</p>
+            <button class="button add-button" data-action="add" data-name="Livros" data-price="45">Adicionar</button>
           </div>
       </div>
       <h2>Carrinho</h2>

@@ -90,10 +90,12 @@ document.addEventListener("DOMContentLoaded", () => {
   function performSearch(term) {
     const q = (term || "").toLowerCase();
     // seleciona elementos que podem conter os itens (classes inconsistentes no HTML)
-    const nodes = document.querySelectorAll('.item, .menu-items');
+    const nodes = document.querySelectorAll('.item');
     nodes.forEach((item) => {
       const name = (item.dataset.name || "").toLowerCase();
-      item.style.display = name.includes(q) ? "block" : "none";
+      const desc = (item.textContent || "").toLowerCase();
+      const matches = name.includes(q) || desc.includes(q);
+      item.style.display = matches ? "block" : "none";
     });
   }
 
@@ -112,4 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (searchButton) {
     searchButton.addEventListener('click', () => performSearch(searchInput ? searchInput.value : ''));
   }
+
+  // Event delegation para os botões de adicionar: usa data-attributes definidos no HTML
+  document.body.addEventListener('click', (e) => {
+    const btn = e.target.closest && e.target.closest('.add-button');
+    if (!btn) return;
+    const name = btn.dataset.name || btn.getAttribute('data-name');
+    const priceRaw = btn.dataset.price || btn.getAttribute('data-price');
+    const price = Number(priceRaw);
+    if (!name || isNaN(price)) return;
+    addToCart(name, price);
+  });
 });
